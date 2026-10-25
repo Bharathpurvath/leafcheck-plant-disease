@@ -33,7 +33,7 @@ python gradcam.py --image path/to/leaf.jpg
 
 `prepare_data.py` uses seed 42 to make a stratified, image-level 80/20 test split, then caps the training/validation pool per class to keep CPU training practical. The trainer uses 20% of that pool for validation. The included selected checkpoint was trained with five classifier-head epochs and a frozen ImageNet MobileNetV2 backbone; a one-epoch fine-tuning pass did not beat its validation score. The test partition contains 10,858 images and was not used for fitting or checkpoint selection. This is an image-level split: related views of the same physical leaf may cross partitions, so the score may be optimistic. A leaf-grouped split and external field-photo evaluation are needed for stronger generalization claims.
 
-Evaluation writes `reports/classification_report.txt` and `reports/confusion_matrix.png`. The final held-out results are 92.39% accuracy, 91.20% macro precision, 91.12% macro recall, and 90.73% macro F1. See `PROJECT_REPORT.md` for the full method and limits.
+Evaluation writes `reports/classification_report.txt` and `reports/confusion_matrix.png`. The random image-level test scores are 92.39% accuracy, 91.20% macro precision, 91.12% macro recall, and 90.73% macro F1. See `PROJECT_REPORT.md` for the full method and limits.
 
 ## Model and app behavior
 
